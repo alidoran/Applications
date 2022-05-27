@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Safely Camera</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="password">Password</string>
+    <string name="user_name">User name</string>
+    <string name="login_details">Login details</string>
+    <string name="sign_up_details">SignUp details</string>
+    <string name="signup">Sign Up</string>
+    <string name="sign_in">Sign In</string>
+    <string name="username_error">Username only accept alphaNumeric character</string>
+    <string name="password_error">AlphaNumeric, special character, at least 8, UpperLower are must</string>
+    <string name="press_again_to_exit">Please press again for exit</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="ok">Ok</string>
+</resources>
