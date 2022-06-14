@@ -3,9 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/AndroidStudioProjects/Applications/dagger_room_mvvm/src/main/res/layout/activity_dagger_room.xml" value="0.175" />
+        <entry key="..\:/Android/AndroidStudioProjects/Applications/safely_camera/src/main/res/drawable/baseline_camera_alt_white_24dp.xml" value="0.188" />
+        <entry key="..\:/Android/AndroidStudioProjects/Applications/safely_camera/src/main/res/layout/activity_password.xml" value="0.346875" />
+        <entry key="..\:/Android/AndroidStudioProjects/Applications/safely_camera/src/main/res/layout/activity_photo_main.xml" value="0.346875" />
+        <entry key="..\:/Android/AndroidStudioProjects/Applications/safely_camera/src/main/res/layout/photo_recycler_item.xml" value="0.346875" />
         <entry key="..\:/Android/AndroidStudioProjects/Applications/safelycamera/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Android/AndroidStudioProjects/Applications/safelycamera/src/main/res/layout/activity_password.xml" value="0.14266304347826086" />
         <entry key="..\:/Android/AndroidStudioProjects/Applications/safelycamera/src/main/res/layout/photo_recycler_item.xml" value="0.175" />
+        <entry key="..\:/Android/AndroidStudioProjects/Applications/weather/src/main/res/layout/activity_weather_main.xml" value="0.175" />
       </map>
     </option>
   </component>

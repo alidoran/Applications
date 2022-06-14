@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_margin">8dp</dimen>
+    <dimen name="inner_linear">16dp</dimen>
+    <dimen name="between_edt">8dp</dimen>
+    <dimen name="txt_to_btn">32dp</dimen>
+    <dimen name="floating_btn_margin">32dp</dimen>
+</resources>

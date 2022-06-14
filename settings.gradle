@@ -13,4 +13,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Applications"
-include ':safelycamera'
+include ':safely_camera'
+include ':dagger_room_mvvm'
+include ':weather'
