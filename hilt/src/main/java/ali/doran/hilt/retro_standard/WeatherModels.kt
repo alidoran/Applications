@@ -1,14 +1,7 @@
-package com.alidoran.mvvm_dagger_room_retro_test.model
+package ali.doran.hilt.retro_standard
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 
-@Entity(tableName = "user_entity")
 data class WeatherModel(
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    val id:Int = 0,
     var location: Location,
     var current: Current
 )
@@ -53,4 +46,6 @@ data class Current(
     var uv: Float,
     var gust_mph: Float,
     var gust_kph: Float,
-)
+
+
+    )

@@ -11,6 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/dagger_room_mvvm" />
+            <option value="$PROJECT_DIR$/hilt" />
             <option value="$PROJECT_DIR$/mvvm_dagger_room_retro_test" />
             <option value="$PROJECT_DIR$/safely_camera" />
             <option value="$PROJECT_DIR$/weather" />

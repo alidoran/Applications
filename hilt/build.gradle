@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "ali.doran.hilt"
+        minSdk 26
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+}
+
+dependencies {
+
+    implementation "androidx.core:core-ktx:$core_ktx"
+    implementation "androidx.appcompat:appcompat:$appcompat"
+    implementation "com.google.android.material:material:$material"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
+
+    testImplementation "junit:junit:$junit"
+    androidTestImplementation "androidx.test.ext:junit:$ext_junit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+
+
+    implementation "com.google.dagger:hilt-android:$dagger"
+    kapt "com.google.dagger:hilt-compiler:$dagger"
+
+//    // For instrumentation tests
+//    androidTestImplementation  "com.google.dagger:hilt-android-testing:$dagger"
+//    kaptAndroidTest "com.google.dagger:hilt-compiler:$dagger"
+//
+//    // For local unit tests
+//    testImplementation "com.google.dagger:hilt-android-testing:$dagger"
+//    kaptTest "com.google.dagger:hilt-compiler:$dagger"
+    
+    
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation "androidx.fragment:fragment-ktx:$fragment_ktx"
+}
+
+kapt {
+    correctErrorTypes true
+}

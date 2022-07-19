@@ -1,11 +1,11 @@
-package alidoran.weather.api
+package alidoran.weather.service
 
 import alidoran.weather.model.WeatherModel
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface WeatherApi {
+interface WeatherService {
     @GET("v1/current.json")
     suspend fun getWeatherApi(
         @Query("key")

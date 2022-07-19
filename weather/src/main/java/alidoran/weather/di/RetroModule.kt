@@ -1,6 +1,6 @@
 package alidoran.weather.di
 
-import alidoran.weather.api.WeatherApi
+import alidoran.weather.service.WeatherService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -13,8 +13,8 @@ class RetroModule {
 
     @Singleton
     @Provides
-    fun getWeatherApi(retrofit: Retrofit): WeatherApi {
-        return retrofit.create(WeatherApi::class.java)
+    fun getWeatherApi(retrofit: Retrofit): WeatherService {
+        return retrofit.create(WeatherService::class.java)
     }
 
     @Singleton

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import alidoran.weather.model.WeatherModel
+import android.widget.Toast
 
 class WeatherMainActivity : AppCompatActivity() {
 
@@ -21,6 +22,7 @@ class WeatherMainActivity : AppCompatActivity() {
         ) {
                 t -> val mWeatherModel: WeatherModel? = t
             println("AliDoran" + mWeatherModel!!.location.name)
+            Toast.makeText(this@WeatherMainActivity,mWeatherModel!!.location.name, Toast.LENGTH_LONG ).show()
         }
     }
 }
