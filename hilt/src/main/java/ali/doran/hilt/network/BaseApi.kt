@@ -1,5 +1,6 @@
-package ali.doran.hilt.retro_standard
+package ali.doran.hilt.network
 
+import ali.doran.hilt.data.WeatherService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

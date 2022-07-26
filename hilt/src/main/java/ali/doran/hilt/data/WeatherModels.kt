@@ -1,4 +1,4 @@
-package ali.doran.hilt.retro_standard
+package ali.doran.hilt.data
 
 
 data class WeatherModel(
