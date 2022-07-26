@@ -14,9 +14,6 @@ import javax.inject.Inject
 class HiltActivityViewModel @Inject constructor(
     private val weatherService: WeatherService
 ): ViewModel() {
-
-
-
     fun callWeatherService(){
         viewModelScope.launch(Dispatchers.IO) {
             val response = weatherService.getWeatherApi2(q = "Tehran")

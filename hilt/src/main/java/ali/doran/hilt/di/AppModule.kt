@@ -1,6 +1,6 @@
 package ali.doran.hilt.di
 
-import ali.doran.hilt.network.getWeatherService
+import ali.doran.hilt.network.BaseApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,11 +10,7 @@ import javax.inject.Singleton
 //@InstallIn(AppCompatActivity::class, FragmentActivity::class)
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
-
-    @Singleton
-    @Provides
-    fun provideTestString() = "Hello"
+class AppModule : BaseApi() {
 
     @Singleton
     @Provides

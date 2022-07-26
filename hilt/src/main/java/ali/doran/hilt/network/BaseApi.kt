@@ -6,19 +6,22 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-private const val BASE_ADDRESS = "https://api.weatherapi.com/"
 
-private fun createBuilder(): Retrofit {
-    val okHttpClient = OkHttpClient.Builder()
-        .connectTimeout(15, TimeUnit.SECONDS)
-        .build()
-    return Retrofit.Builder()
-        .baseUrl(BASE_ADDRESS)
-        .addConverterFactory(GsonConverterFactory.create())
-        .client(okHttpClient)
-        .build()
-}
+open class BaseApi {
+    private val BASE_ADDRESS = "https://api.weatherapi.com/"
 
-fun getWeatherService(): WeatherService {
-    return createBuilder().create(WeatherService::class.java)
+    private fun createBuilder(): Retrofit {
+        val okHttpClient = OkHttpClient.Builder()
+            .connectTimeout(15, TimeUnit.SECONDS)
+            .build()
+        return Retrofit.Builder()
+            .baseUrl(BASE_ADDRESS)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
+    }
+
+    protected fun getWeatherService(): WeatherService {
+        return createBuilder().create(WeatherService::class.java)
+    }
 }
