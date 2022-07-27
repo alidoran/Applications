@@ -7,21 +7,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 
-open class BaseApi {
-    private val BASE_ADDRESS = "https://api.weatherapi.com/"
-
-    private fun createBuilder(): Retrofit {
+open class BaseApi protected constructor(){
+    
+    private fun createBuilder(baseUrl : String): Retrofit {
         val okHttpClient = OkHttpClient.Builder()
             .connectTimeout(15, TimeUnit.SECONDS)
             .build()
         return Retrofit.Builder()
-            .baseUrl(BASE_ADDRESS)
+            .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
     }
 
     protected fun getWeatherService(): WeatherService {
-        return createBuilder().create(WeatherService::class.java)
+        val weatherServiceBaseAddress = "https://api.weatherapi.com/"
+        return createBuilder(weatherServiceBaseAddress).create(WeatherService::class.java)
     }
 }

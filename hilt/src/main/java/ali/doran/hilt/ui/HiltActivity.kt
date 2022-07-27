@@ -3,6 +3,7 @@ package ali.doran.hilt.ui
 import ali.doran.hilt.R
 import ali.doran.hilt.data.WeatherService
 import ali.doran.hilt.databinding.ActivityHiltBinding
+import ali.doran.hilt.network.BaseApi
 import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

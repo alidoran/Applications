@@ -23,14 +23,4 @@ class HiltActivityViewModel @Inject constructor(
                 Log.d(ContentValues.TAG, "makeApiCall: ${response.errorBody()}")
         }
     }
-//    fun weatherNow(){
-//        viewModelScope.launch(Dispatchers.IO) {
-//            val response = weatherService.getWeatherApi2(q = "Tehran")
-//            if (response.isSuccessful)
-//                Log.d(ContentValues.TAG, "makeApiCall: ${response.body()!!.location}")
-//            else
-//                Log.d(ContentValues.TAG, "makeApiCall: ${response.errorBody()}")
-//        }
-//    }
-
 }
