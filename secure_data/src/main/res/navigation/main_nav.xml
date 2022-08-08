@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/bankCardFragment"
+        android:name="ali.doran.securedata.ui.main.BankCardFragment"
+        tools:layout="@layout/fragment_bank_card"
+        android:label="fragment_bank_card" >
+        <action
+            android:id="@+id/action_bankCardFragment_to_addBankCardFragment"
+            app:destination="@id/addBankCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ali.doran.securedata.ui.main.MainFragment"
+        tools:layout="@layout/fragment_main"
+        android:label="fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_bankCardFragment"
+            app:destination="@id/bankCardFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_webPassFragment"
+            app:destination="@id/webPassFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_digitalCoinFragment"
+            app:destination="@id/digitalCoinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/digitalCoinFragment"
+        android:name="ali.doran.securedata.ui.main.DigitalCoinFragment"
+        tools:layout="@layout/fragment_digital_coin"
+        android:label="fragment_digital_coin" />
+    <fragment
+        android:id="@+id/webPassFragment"
+        android:name="ali.doran.securedata.ui.main.WebPassFragment"
+        tools:layout="@layout/fragment_web_pass"
+        android:label="fragment_web_pass" />
+    <fragment
+        android:id="@+id/addBankCardFragment"
+        android:name="ali.doran.securedata.AddBankCardFragment"
+        android:label="fragment_add_bank_card"
+        tools:layout="@layout/fragment_add_bank_card" />
+</navigation>

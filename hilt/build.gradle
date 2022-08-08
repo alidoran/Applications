@@ -18,6 +18,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
+
     buildTypes {
         release {
             minifyEnabled false
@@ -35,7 +37,6 @@ android {
     buildFeatures {
         viewBinding true
     }
-
 }
 
 dependencies {
@@ -46,12 +47,12 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
 
     testImplementation "junit:junit:$junit"
-    androidTestImplementation "androidx.test.ext:junit:$ext_junit"
+    androidTestImplementation "androidx.test.ext:junit:$junitktx"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
 
     //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit2"
 
 
     implementation "com.google.dagger:hilt-android:$dagger"
@@ -66,7 +67,7 @@ dependencies {
 //    kaptTest "com.google.dagger:hilt-compiler:$dagger"
     
     
-    implementation "androidx.multidex:multidex:2.0.1"
+    implementation "androidx.multidex:multidex:$multi_dex"
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx"
 }
 

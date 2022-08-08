@@ -1,6 +1,7 @@
 package alidoran.dagger_room_mvvm.di
 
 import alidoran.dagger_room_mvvm.database.AppDataBase
+import alidoran.dagger_room_mvvm.database.AppDataBase.Companion.getDataBase
 import alidoran.dagger_room_mvvm.database.UserDao
 import android.app.Application
 import android.content.Context
@@ -20,7 +21,7 @@ class AppModule(private val application: Application) {
     @Singleton
     @Provides
     fun getRoomDbInstance(): AppDataBase{
-        return AppDataBase.getDataBase(provideAppContext())
+        return getDataBase(provideAppContext())
     }
 
     @Singleton

@@ -49,8 +49,8 @@ dependencies {
     implementation "androidx.legacy:legacy-support-v4:$legacy_support"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions"
     testImplementation "junit:junit:$junit"
-    testImplementation "rg.junit.jupiter:junit-jupiter:$jupiter"
-    androidTestImplementation "androidx.test.ext:junit:$ext_junit"
+    testImplementation "rg.junit.jupiter:junit-jupiter:$junit_jupiter"
+    androidTestImplementation "androidx.test.ext:junit:$junitktx"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
 
     //dagger

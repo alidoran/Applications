@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -14,6 +16,12 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    packagingOptions {
+        exclude("META-INF/LICENSE.md")
+        exclude("META-INF/LICENSE-notice.md")
     }
 
     buildTypes {
@@ -33,6 +41,20 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+
+    testOptions {
+        unitTests.all {
+            useJUnitPlatform()
+            systemProperty "junit.jupiter.testinstance.lifecycle.default", "per_method"
+            //Test default instance will be changed by this line
+            systemProperty "junit.jupiter.execution.parallel.enabled", "true"
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
 }
 
 dependencies {
@@ -40,7 +62,40 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat"
     implementation "com.google.android.material:material:$material"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
+    kapt "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions"
+
+    //Test
+    testImplementation "org.amshove.kluent:kluent:$kluent"
     testImplementation "junit:junit:$junit"
-    androidTestImplementation "androidx.test.ext:junit:$ext_junit"
+    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:$junit_vintage"
+    testImplementation "org.junit.jupiter:junit-jupiter:$junit_jupiter"
+    testImplementation "androidx.test:core:$test_core"
+    androidTestImplementation "androidx.test.ext:junit:$junitktx"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
+    androidTestImplementation "org.junit.jupiter:junit-jupiter:$junit_jupiter"
+    androidTestImplementation "androidx.arch.core:core-testing:2.0.0"
+
+    //Room
+    implementation 'androidx.room:room-ktx:2.4.2'
+    kapt "androidx.room:room-compiler:2.4.2"
+    androidTestImplementation 'androidx.room:room-testing:2.4.2'
+
+    //Hilt
+    kapt "com.google.dagger:hilt-compiler:$dagger"
+    implementation "com.google.dagger:hilt-android:$dagger"
+    androidTestImplementation "com.google.dagger:hilt-android-testing:$dagger"
+
+    testImplementation "com.google.dagger:hilt-android-testing:$dagger"
+    testAnnotationProcessor "com.google.dagger:hilt-compiler:$dagger"
+    androidTestAnnotationProcessor "com.google.dagger:hilt-compiler:$dagger"
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation"
+
+    implementation "androidx.multidex:multidex:$multi_dex"
+}
+
+kapt {
+    correctErrorTypes true
 }

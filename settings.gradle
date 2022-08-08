@@ -16,7 +16,7 @@ rootProject.name = "Applications"
 include ':safely_camera'
 include ':dagger_room_mvvm'
 include ':weather'
-include ':mvvm_dagger_room_retro_test'
+include ':mvvm_hilt_room_retro_test'
 include ':hilt'
 include ':common_library'
 include ':secure_data'

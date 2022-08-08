@@ -46,8 +46,8 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx"
 
     //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit2"
 
     //Dagger
     kapt "com.google.dagger:dagger-compiler:$dagger"
@@ -59,9 +59,9 @@ dependencies {
 
     //Test
     testImplementation "junit:junit:$junit"
-    androidTestImplementation "androidx.test.ext:junit:$ext_junit"
+    androidTestImplementation "androidx.test.ext:junit:$junitktx"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
-    testImplementation "org.mockito:mockito-core:$mockito"
+    testImplementation "org.mockito:mockito-core:$mockito_core"
     testImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_kotlin"
     testImplementation "io.mockk:mockk:$mockk"
 
