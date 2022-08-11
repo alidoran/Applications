@@ -15,6 +15,8 @@ class MdrrtActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMdrrtBinding
     private val viewModel: MdrrtMainViewModel by viewModels()
 
+    lateinit var movieList:List<Movie>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMdrrtBinding.inflate(layoutInflater)
@@ -25,7 +27,8 @@ class MdrrtActivity : AppCompatActivity() {
 //            Log.d(TAG, "onCreate: ${movieList!![0].title}")
 //        }
 
-        viewModel.refresh250MoviesFromRepository()
-        viewModel.getLiveDate()
+        viewModel.liveData.observe(this){
+            movieList -> this.movieList = movieList
+        }
     }
 }

@@ -14,5 +14,5 @@ data class Movie(
     val image: String,
     val rank: String,
     val title: String,
-    val year: String
+    val year: String,
 )

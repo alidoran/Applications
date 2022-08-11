@@ -6,6 +6,7 @@ import com.alidoran.mvvm_hilt_room_retro_test.db.AppDatabase
 import com.alidoran.mvvm_hilt_room_retro_test.db.MovieDao
 import com.alidoran.mvvm_hilt_room_retro_test.repository.MovieRepository
 import com.alidoran.mvvm_hilt_room_retro_test.api.MoviesService
+import com.alidoran.mvvm_hilt_room_retro_test.repository.MoviesRepositoryInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,7 +34,7 @@ class AppModule : RetrofitServices() {
     fun movieRepository(
         movieDao: MovieDao,
         moviesService: MoviesService
-    ): MovieRepository {
+    ): MoviesRepositoryInterface {
         return MovieRepository(movieDao, moviesService)
     }
 }
