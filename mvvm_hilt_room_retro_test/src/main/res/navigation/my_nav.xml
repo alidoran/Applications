@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/insertMovieFragment"
+        android:name="com.alidoran.mvvm_hilt_room_retro_test.view.InsertMovieFragment"
+        android:label="fragment_insert_movie"
+        tools:layout="@layout/fragment_insert_movie" />
+    <fragment
+        android:id="@+id/show250TopMovieFragment"
+        android:name="com.alidoran.mvvm_hilt_room_retro_test.view.Show250TopMovieFragment"
+        android:label="fragment_show250_top_movie"
+        tools:layout="@layout/fragment_show250_top_movie" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.alidoran.mvvm_hilt_room_retro_test.view.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_insertMovieFragment"
+            app:destination="@id/insertMovieFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_show250TopMovieFragment"
+            app:destination="@id/show250TopMovieFragment" />
+    </fragment>
+</navigation>

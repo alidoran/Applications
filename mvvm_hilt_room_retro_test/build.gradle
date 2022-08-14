@@ -44,6 +44,8 @@ android {
             //Test default instance will be changed by this line
             systemProperty "junit.jupiter.execution.parallel.enabled", "true"
         }
+        unitTests.includeAndroidResources  = true
+        unitTests.returnDefaultValues = true
     }
 }
 
@@ -53,7 +55,6 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat"
     implementation "com.google.android.material:material:$material"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions"
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx"
 
     //Retrofit
@@ -66,14 +67,38 @@ dependencies {
     implementation "androidx.multidex:multidex:$multi_dex"
 
     //Room
-    implementation "androidx.room:room-runtime:$room"
-    kapt "androidx.room:room-compiler:$room"
+    implementation 'androidx.room:room-ktx:2.4.2'
+    kapt "androidx.room:room-compiler:2.4.2"
+    androidTestImplementation 'androidx.room:room-testing:2.4.2'
 
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation"
+
+    //Test
     testImplementation "junit:junit:$junit"
     testRuntimeOnly "org.junit.vintage:junit-vintage-engine:$junit_vintage"
     testImplementation "org.junit.jupiter:junit-jupiter:$junit_jupiter"
     testImplementation "androidx.test:core:$test_core"
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+    testImplementation "androidx.arch.core:core-testing:2.1.0"
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+
+    //Lifecycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
+
+    //picasso
+    implementation "com.squareup.picasso:picasso:2.71828"
+
+    //RecyclerView
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
 }
+
 kapt {
     correctErrorTypes true
 }

@@ -39,7 +39,6 @@ android {
 }
 
 dependencies {
-
     implementation "androidx.core:core-ktx:$core_ktx"
     implementation "androidx.appcompat:appcompat:$appcompat"
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx"
@@ -47,7 +46,8 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$reflect"
     implementation "androidx.legacy:legacy-support-v4:$legacy_support"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions"
+
+    //Test
     testImplementation "junit:junit:$junit"
     testImplementation "rg.junit.jupiter:junit-jupiter:$junit_jupiter"
     androidTestImplementation "androidx.test.ext:junit:$junitktx"
@@ -58,5 +58,11 @@ dependencies {
     implementation "com.google.dagger:dagger:$dagger"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger"
     annotationProcessor "com.google.dagger:dagger-android-processor:$dagger"
+
+    //Lifecycle
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
 
 }

@@ -26,7 +26,7 @@ class BankCardDaoTest {
 
     private lateinit var database: AppDatabase
     private lateinit var dao: BankCardDao
-    val bankCardItem =
+    private val bankCardItem =
         BankCard(1, "saderat", "8888 8888 8888 8888", "1234", "98", 1234, "12345")
 
     @Before

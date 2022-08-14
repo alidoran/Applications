@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Applications">
         <activity
-            android:name="com.alidoran.mvvm_hilt_room_retro_test.view.MdrrtActivity"
+            android:name="com.alidoran.mvvm_hilt_room_retro_test.view.MyActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

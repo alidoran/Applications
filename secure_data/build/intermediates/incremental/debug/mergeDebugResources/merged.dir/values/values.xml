@@ -6336,7 +6336,7 @@
     <item name="windowActionBar">false</item>
     <item name="windowNoTitle">true</item>
   </style>
-    <style name="Theme.SecureData" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.SecureData" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         
         <item name="colorPrimary">#9C27B0</item>
         <item name="colorPrimaryVariant">#7B1FA2</item>

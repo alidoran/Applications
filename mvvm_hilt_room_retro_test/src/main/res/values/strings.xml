@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">mvvm_hilt_room_retro_test</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Title</string>
+    <string name="rank">Rank</string>
+    <string name="full_title">Full title</string>
+    <string name="year">Year</string>
+    <string name="insert_movie">Insert movie</string>
+    <string name="top_250_movie">Top 250 movie</string>
+    <string name="save">Save</string>
+    <string name="movie_image">Movie image</string>
+    <string name="delete">Delete</string>
+    <string name="refresh_list">Refresh List</string>
 </resources>

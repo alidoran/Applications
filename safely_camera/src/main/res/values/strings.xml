@@ -9,6 +9,6 @@
     <string name="username_error">Username only accept alphaNumeric character</string>
     <string name="password_error">AlphaNumeric, special character, at least 8, UpperLower are must</string>
     <string name="press_again_to_exit">Please press again for exit</string>
-    <string name="ok">Ok</string>
+    <string name="ok">ok</string>
     <string name="take_picture">Take picture</string>
 </resources>

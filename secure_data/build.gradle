@@ -62,7 +62,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appcompat"
     implementation "com.google.android.material:material:$material"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
-    kapt "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions"
+    kapt "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
     //Test
     testImplementation "org.amshove.kluent:kluent:$kluent"

@@ -4,9 +4,9 @@ import android.content.Context
 import com.alidoran.mvvm_hilt_room_retro_test.api.RetrofitServices
 import com.alidoran.mvvm_hilt_room_retro_test.db.AppDatabase
 import com.alidoran.mvvm_hilt_room_retro_test.db.MovieDao
-import com.alidoran.mvvm_hilt_room_retro_test.repository.MovieRepository
+import com.alidoran.mvvm_hilt_room_retro_test.repositories.MovieRepositoryDefault
 import com.alidoran.mvvm_hilt_room_retro_test.api.MoviesService
-import com.alidoran.mvvm_hilt_room_retro_test.repository.MoviesRepositoryInterface
+import com.alidoran.mvvm_hilt_room_retro_test.repositories.MoviesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,7 +34,7 @@ class AppModule : RetrofitServices() {
     fun movieRepository(
         movieDao: MovieDao,
         moviesService: MoviesService
-    ): MoviesRepositoryInterface {
-        return MovieRepository(movieDao, moviesService)
+    ): MoviesRepository {
+        return MovieRepositoryDefault(movieDao, moviesService)
     }
 }
