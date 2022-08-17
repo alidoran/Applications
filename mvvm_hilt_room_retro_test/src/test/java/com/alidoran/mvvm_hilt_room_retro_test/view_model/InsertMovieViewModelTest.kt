@@ -2,14 +2,18 @@ package com.alidoran.mvvm_hilt_room_retro_test.view_model
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.alidoran.mvvm_hilt_room_retro_test.repositories.FakeShoppingRepository
-import kotlinx.coroutines.*
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 import org.junit.Rule
-import org.junit.jupiter.api.*
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertTrue
-import org.junit.jupiter.api.parallel.Execution
-import org.junit.jupiter.api.parallel.ExecutionMode
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+
 
 @ExperimentalCoroutinesApi
 @DelicateCoroutinesApi
@@ -43,7 +47,6 @@ class InsertMovieViewModelTest {
     fun `search movie`() {
         myViewModel.movie.title = "Insert Test"
         myViewModel.insertMovie()
-        myViewModel.findMovieByTitle("Insert")
         val findMovie = myViewModel.liveData.getOrAwaitValue()
         assertTrue(findMovie.isNotEmpty())
     }

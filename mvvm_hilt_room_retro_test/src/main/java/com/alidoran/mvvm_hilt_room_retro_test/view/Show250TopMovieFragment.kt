@@ -43,7 +43,7 @@ class Show250TopMovieFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener
             binding.swipeMovieList.isRefreshing = false
         val movieAdapter = MovieListAdapter(movieList)
         movieAdapter.setDeleteListener(object :MovieListAdapter.OnMovieDeleteListener{
-            override fun onDelete(movie: Movie?) {
+            override fun onDelete(movie: Movie) {
                 viewModel.deleteMovie(movie)
             }
         })

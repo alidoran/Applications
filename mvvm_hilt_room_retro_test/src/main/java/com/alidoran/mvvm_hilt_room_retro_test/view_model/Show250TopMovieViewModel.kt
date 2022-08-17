@@ -17,6 +17,9 @@ import javax.inject.Inject
 class Show250TopMovieViewModel @Inject constructor(
     private val repository: MoviesRepository
 ) : ViewModel() {
+    init {
+        refresh250MoviesFromRepository()
+    }
 
     private val _liveData : LiveData<List<Movie>> = repository.observeTop250Movies()
     val liveData
@@ -28,9 +31,9 @@ class Show250TopMovieViewModel @Inject constructor(
         }
     }
 
-    fun deleteMovie(movie: Movie?){
+    fun deleteMovie(movie: Movie){
         viewModelScope.launch {
-        repository.deleteMovieItem(movie!!)
+        repository.deleteMovieItem(movie)
         }
     }
 }

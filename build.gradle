@@ -3,16 +3,16 @@ buildscript{
     ext{
         //Core
         core_ktx = '1.8.0'
-        fragment_ktx = '1.5.1'
+        fragment_ktx = '1.5.2'
         reflect = '1.7.0'
-        appcompat = '1.4.2'
-        compose_version = '1.3.0-alpha01'
+        appcompat = '1.5.0'
+        compose_version = '1.3.0-beta01'
         constraintlayout = '2.1.4'
         junitktx = '1.1.3'
         material = '1.6.1'
         compose = '1.5.0'
-        navigation = '2.5.0'
-        lifecycle_version = '2.6.0-alpha01'
+        navigation = '2.5.1'
+        lifecycle_version = '2.2.0'
         legacy_support = '1.0.0'
 
         //Test
@@ -21,7 +21,7 @@ buildscript{
         junit_vintage = '5.8.2'
         junit_jupiter = '5.8.2'
         test_core = '1.4.0'
-        mockk = '1.12.3'
+        mockk = '1.12.4'
         mockito_core = '4.6.1'
         mockito_kotlin = '4.0.0'
         core_testing = '2.1.0'
@@ -29,17 +29,15 @@ buildscript{
         test_monitor = '1.5.0'
 
         //DI
-        dagger = '2.42'
-        hilt = '2.38.1'
+        dagger = '2.43.2'
         hilt_compiler = '1.0.0'
-        hilt_android ='2.33-beta'
         multi_dex = '2.0.1'
 
         //Network
         retrofit2 = '2.9.0'
 
         //UI
-        glide = '4.13.0'
+        glide = '4.13.2'
 
         //FireBase
         firebase_messaging = '23.0.6'
@@ -48,12 +46,11 @@ buildscript{
         jackson = '2.13.3'
 
         //DB
-        room = '2.4.2'
+        room = '2.4.3'
 
     }
 
     dependencies {
-        // hilt classpath
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.42'
     }
     repositories {
@@ -64,7 +61,7 @@ buildscript{
 plugins {
     id 'com.android.application' version '7.2.2' apply false
     id 'com.android.library' version '7.2.2' apply false
-    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+    id 'org.jetbrains.kotlin.android' version '1.6.0' apply false
 }
 
 task clean(type: Delete) {

@@ -49,7 +49,7 @@ dependencies {
 
     //Test
     testImplementation "junit:junit:$junit"
-    testImplementation "rg.junit.jupiter:junit-jupiter:$junit_jupiter"
+    testImplementation "org.junit.jupiter:junit-jupiter:$junit_jupiter"
     androidTestImplementation "androidx.test.ext:junit:$junitktx"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso"
 

@@ -7,7 +7,7 @@ import kotlinx.coroutines.coroutineScope
 
 class FakeShoppingRepository : MoviesRepository {
 
-    private val movieList = ArrayList<Movie>()
+    private val movieList = mutableListOf<Movie>()
     private val observeMovieList = MutableLiveData<List<Movie>>(movieList)
 
     override fun observeTop250Movies() = observeMovieList
@@ -30,6 +30,7 @@ class FakeShoppingRepository : MoviesRepository {
 
     override suspend fun insertMovieItem(movie: Movie) {
         movieList.add(movie)
+        observeMovieList.value = movieList
     }
 
     override suspend fun deleteMovieItem(movie: Movie) {
@@ -45,8 +46,7 @@ class FakeShoppingRepository : MoviesRepository {
     }
 
     private fun refreshLiveData(){
-        observeMovieList.value = movieList
-        observeTop250Movies()
+        observeMovieList.postValue(movieList)
     }
 
 }

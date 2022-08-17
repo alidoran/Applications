@@ -18,7 +18,8 @@ class MovieRepositoryDefault @Inject constructor(
     val movie
         get() = _movies
 
-    override fun observeTop250Movies() = movieDao.observe250TopMovie()
+    override fun observeTop250Movies() =
+        movieDao.observe250TopMovie()
 
     override suspend fun refreshTop250Movies() {
         withContext(Dispatchers.IO) {
@@ -26,7 +27,8 @@ class MovieRepositoryDefault @Inject constructor(
             if (response.isSuccessful) {
                 response.body()?.let {
                     movieDao.insertMovieList(it.items)
-                } ?: println("Couldn't load the list")
+                } ?:
+                println("Couldn't load the list")
             } else {
                 println("Server data is empty")
             }

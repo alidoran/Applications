@@ -1,43 +1,44 @@
 package com.alidoran.mvvm_hilt_room_retro_test.view_model
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.alidoran.mvvm_hilt_room_retro_test.model.Movie
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.liveData
 import com.alidoran.mvvm_hilt_room_retro_test.repositories.FakeShoppingRepository
 import kotlinx.coroutines.*
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.setMain
+import kotlinx.coroutines.test.*
 import org.junit.Rule
-import org.junit.jupiter.api.*
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.rules.TestRule
-import org.mockito.Mock
-import org.mockito.Mockito
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+
 
 @ExperimentalCoroutinesApi
 @DelicateCoroutinesApi
 class Show250TopMovieViewModelTest {
-    private lateinit var myViewModel: Show250TopMovieViewModel
+    private lateinit var viewModel: Show250TopMovieViewModel
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
-
+//
     //For calling suspend methods
-    private val mainThreadSurrogate = newSingleThreadContext("UI thread")
+    private val mainThreadSurrogate = newSingleThreadContext("ShowThread")
 
 
     @BeforeEach
     fun setup() {
         Dispatchers.setMain(mainThreadSurrogate)
-        myViewModel = Show250TopMovieViewModel(FakeShoppingRepository())
+        viewModel = Show250TopMovieViewModel(FakeShoppingRepository())
     }
+
 
     @Test
-    fun `Test refresh top 250 movie list`() {
-        myViewModel.refresh250MoviesFromRepository()
-        val movieList = myViewModel.liveData.getOrAwaitValue()
-        assertEquals(movieList[0].id, "TestId")
-    }
+    fun `Refresh 250 top movie List`() {
+        viewModel.refresh250MoviesFromRepository()
+        val movieList = viewModel.liveData.getOrAwaitValue()
+        Assertions.assertTrue(movieList.isNotEmpty())
 
+    }
 
 
     @AfterEach

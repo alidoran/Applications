@@ -35,7 +35,7 @@ class MovieListAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.onClickListener =
-                View.OnClickListener { movieDeleteListener.onDelete(binding.model) }
+                View.OnClickListener { movieDeleteListener.onDelete(binding.model!!) }
         }
 
         fun bind(movie: Movie) {
@@ -48,6 +48,6 @@ class MovieListAdapter(
     }
 
     interface OnMovieDeleteListener {
-        fun onDelete(movie: Movie?)
+        fun onDelete(movie: Movie)
     }
 }
