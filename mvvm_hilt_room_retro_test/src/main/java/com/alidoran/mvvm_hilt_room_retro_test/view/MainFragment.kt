@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.alidoran.mvvm_hilt_room_retro_test.R
 import com.alidoran.mvvm_hilt_room_retro_test.databinding.FragmentMainBinding
 
@@ -28,12 +29,8 @@ class MainFragment : Fragment() {
     }
 
     private fun initEvent() {
-        binding.btnInsertMovie.setOnClickListener{
-            Navigation.findNavController(binding.root)
-                .navigate(R.id.action_mainFragment_to_insertMovieFragment)
-        }
         binding.btnTop250Movie.setOnClickListener {
-            Navigation.findNavController(binding.root)
+            findNavController()
                 .navigate(R.id.action_mainFragment_to_show250TopMovieFragment)
         }
     }

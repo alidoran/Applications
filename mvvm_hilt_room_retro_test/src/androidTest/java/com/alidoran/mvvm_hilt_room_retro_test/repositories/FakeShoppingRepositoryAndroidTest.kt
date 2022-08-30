@@ -4,26 +4,24 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.alidoran.mvvm_hilt_room_retro_test.model.Movie
 
-class FakeShoppingRepository : MoviesRepository {
+class FakeShoppingRepositoryAndroidTest : MoviesRepository {
+    private var movieList = createMovieList()
+    private val _movieLiveData = MutableLiveData<List<Movie>>(movieList)
+    private val liveData = _movieLiveData
 
-    private val movieList = ArrayList<Movie>()
 
-    override fun observeTop250Movies(): LiveData<List<Movie>> {
-        val value = createMovieList()
-        return MutableLiveData(value)
-    }
+    override fun observeTop250Movies() = liveData
 
     override suspend fun refreshTop250Movies() {
-//        val value = createMovieList()
-//        observeMovieList.postValue(value)
+        movieList.clear()
+        movieList = createMovieList()
     }
 
-    override fun insertMovieItem(movie: Movie):Long {
-        val fakeRowId = 100L
+    override fun insertMovieItem(movie: Movie): Long {
         return try {
             movieList.add(movie)
-            fakeRowId
-        }catch (e:Exception){
+            movieList.lastIndex.toLong()
+        } catch (e: Exception) {
             0
         }
     }
@@ -32,25 +30,20 @@ class FakeShoppingRepository : MoviesRepository {
         movieList.remove(movie)
     }
 
-    override fun movieCount(): Int {
-        return movieList.count()
-    }
+    override fun movieCount(): Int =
+        movieList.count()
+
 
     override fun observeFindMovieByTitle(title: String): LiveData<List<Movie>> {
-        val foundMovieList = movieList.filter {
-                movie: Movie -> movie.title == title
+        val foundMovieList = movieList.filter { movie: Movie ->
+            movie.title == title
         }
         return MutableLiveData(foundMovieList)
     }
 
-    private fun refreshLiveData(){
-
-        observeTop250Movies()
-    }
-
-    private fun createMovieList():List<Movie>{
+    private fun createMovieList(): ArrayList<Movie> {
         val movieList = ArrayList<Movie>()
-        for (i in 0..2){
+        for (i in 0..2) {
             val movie = Movie(
                 "TestId$i",
                 "TestCrew$i",

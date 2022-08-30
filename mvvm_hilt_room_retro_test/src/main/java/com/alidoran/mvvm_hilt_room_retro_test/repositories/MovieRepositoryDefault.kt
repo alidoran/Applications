@@ -14,10 +14,6 @@ class MovieRepositoryDefault @Inject constructor(
     private val moviesService: MoviesService
 ) : MoviesRepository {
 
-    private val _movies = MutableLiveData<List<Movie>>()
-    val movie
-        get() = _movies
-
     override fun observeTop250Movies() =
         movieDao.observe250TopMovie()
 
@@ -35,15 +31,19 @@ class MovieRepositoryDefault @Inject constructor(
         }
     }
 
-    override suspend fun insertMovieItem(movie: Movie) {
-        movieDao.insertItem(movie)
+    override fun insertMovieItem(movie: Movie): Long {
+        return movieDao.insertItem(movie)
     }
 
     override suspend fun deleteMovieItem(movie: Movie) {
         movieDao.delete(movie)
     }
 
-    override suspend fun observeFindTitleMovie(title: String): LiveData<List<Movie>> {
+    override fun observeFindMovieByTitle(title: String): LiveData<List<Movie>> {
         return movieDao.observeFindMovieByTitle(title)
+    }
+
+    override fun movieCount(): Int {
+        return movieDao.movieCount()
     }
 }

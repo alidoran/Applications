@@ -11,7 +11,7 @@ data class Movie(
     var fullTitle: String="",
     val imDbRating: String="",
     val imDbRatingCount: String="",
-    val image: String="",
+    var image: String="",
     var rank: String="",
     var title: String="",
     var year: String="",

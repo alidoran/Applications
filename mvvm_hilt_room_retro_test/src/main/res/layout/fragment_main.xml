@@ -12,12 +12,6 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_insert_movie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/insert_movie" />
-
-        <Button
             android:id="@+id/btn_top_250_movie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

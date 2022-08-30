@@ -1,35 +1,23 @@
 package com.alidoran.mvvm_hilt_room_retro_test.view_model
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.alidoran.mvvm_hilt_room_retro_test.repositories.FakeShoppingRepository
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
+import com.example.android.architecture.blueprints.todoapp.MainCoroutineRule
+import getOrAwaitValue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.newSingleThreadContext
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.setMain
 import org.junit.Rule
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-
 @ExperimentalCoroutinesApi
-@DelicateCoroutinesApi
 class InsertMovieViewModelTest {
     private lateinit var myViewModel: InsertMovieViewModel
 
     @get:Rule
-    var instantTaskExecutorRule = InstantTaskExecutorRule()
-
-    //For calling suspend methods
-    private val mainThreadSurrogate = newSingleThreadContext("UI thread")
-
+    var mainCoroutineRule = MainCoroutineRule()
 
     @BeforeEach
     fun setup() {
-        Dispatchers.setMain(mainThreadSurrogate)
         myViewModel = InsertMovieViewModel(FakeShoppingRepository())
     }
 
@@ -42,21 +30,5 @@ class InsertMovieViewModelTest {
 //        val findMovie = myViewModel.liveData.getOrAwaitValue()
 //        assertTrue(findMovie.isNotEmpty())
 //    }
-
-    @Test
-    fun `search movie`() {
-        myViewModel.movie.title = "Insert Test"
-        myViewModel.insertMovie()
-        val findMovie = myViewModel.liveData.getOrAwaitValue()
-        assertTrue(findMovie.isNotEmpty())
-    }
-
-
-
-    @AfterEach
-    fun tearDown() {
-        Dispatchers.resetMain()
-        mainThreadSurrogate.close()
-    }
 
 }

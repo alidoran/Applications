@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 
 class SignInFragment : Fragment() {
     private var _binding: FragmentSignInBinding? = null
@@ -30,7 +31,7 @@ class SignInFragment : Fragment() {
 
     private fun initEvent() {
         binding.txtSignup.setOnClickListener{
-            Navigation.findNavController(binding.root).navigate(R.id.action_signInFragment_to_signUpFragment)
+            findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
         }
         binding.btnAccept.setOnClickListener{
             val intent = Intent(context, MainActivity::class.java)

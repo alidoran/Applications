@@ -3,11 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-
-        <variable
-            name="onClickListener"
-            type="android.view.View.OnClickListener"/>
-
         <variable
             name="model"
             type="com.alidoran.mvvm_hilt_room_retro_test.model.Movie"/>
@@ -35,7 +30,7 @@
         android:text="@{model.fullTitle}"/>
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/appCompatImageView"
+        android:id="@+id/img_movie_logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:contentDescription="@string/movie_image"
@@ -44,14 +39,15 @@
         bind:picasso="@{model.image}" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/material_on_primary_emphasis_medium"
         android:text="@string/delete"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/appCompatImageView"
+        app:layout_constraintEnd_toStartOf="@+id/img_movie_logo"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClickListener="@{onClickListener}"/>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

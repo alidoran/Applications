@@ -12,4 +12,8 @@
     <string name="movie_image">Movie image</string>
     <string name="delete">Delete</string>
     <string name="refresh_list">Refresh List</string>
+    <string name="add_movie">Add Movie</string>
+    <string name="movie_cout">Movie Cout</string>
+    <string name="movie_picture">Movie Picture</string>
+    <string name="choose_photo">Choose Photo</string>
 </resources>

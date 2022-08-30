@@ -6,59 +6,79 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.alidoran.mvvm_hilt_room_retro_test.adapter.MovieListAdapter
 import com.alidoran.mvvm_hilt_room_retro_test.databinding.FragmentShow250TopMovieBinding
-import com.alidoran.mvvm_hilt_room_retro_test.model.Movie
 import com.alidoran.mvvm_hilt_room_retro_test.view_model.Show250TopMovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class Show250TopMovieFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
-
-    lateinit var binding: FragmentShow250TopMovieBinding
-    private val viewModel: Show250TopMovieViewModel by viewModels()
+    private var _binding: FragmentShow250TopMovieBinding? = null
+    private val binding
+        get() = _binding!!
+    private val _vm: Show250TopMovieViewModel by viewModels()
+    lateinit var vm: Show250TopMovieViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentShow250TopMovieBinding.inflate(inflater, container, false)
+        _binding = FragmentShow250TopMovieBinding.inflate(inflater, container, false)
+        vm= _vm
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.swipeMovieList.setOnRefreshListener(this)
-
-        viewModel.liveData.observe(viewLifecycleOwner){
-            loadRecycler(it)
-        }
-    }
-
-    private fun loadRecycler(movieList: List<Movie>) {
+    private fun loadRecycler() {
+        val movieAdapter = MovieListAdapter()
         if (binding.swipeMovieList.isRefreshing)
             binding.swipeMovieList.isRefreshing = false
-        val movieAdapter = MovieListAdapter(movieList)
-        movieAdapter.setDeleteListener(object :MovieListAdapter.OnMovieDeleteListener{
-            override fun onDelete(movie: Movie) {
-                viewModel.deleteMovie(movie)
-            }
-        })
         binding.recyclerMovie.apply {
-            adapter = movieAdapter
             layoutManager = LinearLayoutManager(activity)
+            itemAnimator = DefaultItemAnimator()
+            addItemDecoration(
+                DividerItemDecoration(
+                    activity,
+                    DividerItemDecoration.VERTICAL
+                )
+            )
             isNestedScrollingEnabled = true
+            adapter = movieAdapter
+        }
+        movieAdapter.setOnDeleteListener {
+            vm.deleteMovie(it)
+        }
+        fillAdapterByLiveData(movieAdapter)
+    }
+
+    fun fillAdapterByLiveData(adapter: MovieListAdapter) =
+        vm.getLiveData().observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.swipeMovieList.setOnRefreshListener(this)
+        loadRecycler()
+        binding.fabAdd.setOnClickListener {
+            val movieCount = vm.getMovieCount()
+            val action = Show250TopMovieFragmentDirections
+                .actionShow250TopMovieFragmentToInsertMovieFragment(movieCount)
+            findNavController(this)
+                .navigate(action)
         }
     }
 
-
     override fun onRefresh() {
-        viewModel.refresh250MoviesFromRepository()
+        vm.refresh250MoviesFromRepository()
     }
 
-
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

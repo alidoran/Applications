@@ -15,6 +15,7 @@ import java.lang.Exception
 
 @BindingAdapter("bind:picasso")
 fun picasso(imageView: ImageView, url: String) {
+    if (url.isNotEmpty())
     Picasso.get()
         .load(Uri.parse(url))
         .fit()

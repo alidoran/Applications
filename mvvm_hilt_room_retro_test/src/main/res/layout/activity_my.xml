@@ -15,5 +15,4 @@
         app:navGraph="@navigation/my_nav"
         app:defaultNavHost="true" />
 
-
 </androidx.appcompat.widget.LinearLayoutCompat>

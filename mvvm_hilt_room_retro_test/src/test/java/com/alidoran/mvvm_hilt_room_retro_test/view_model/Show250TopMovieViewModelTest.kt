@@ -1,16 +1,18 @@
 package com.alidoran.mvvm_hilt_room_retro_test.view_model
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.liveData
 import com.alidoran.mvvm_hilt_room_retro_test.repositories.FakeShoppingRepository
+import com.example.android.architecture.blueprints.todoapp.MainCoroutineRule
+import getOrAwaitValue
 import kotlinx.coroutines.*
-import kotlinx.coroutines.test.*
+import kotlinx.coroutines.test.TestCoroutineDispatcher
+import kotlinx.coroutines.test.setMain
 import org.junit.Rule
-import org.junit.jupiter.api.AfterEach
+import org.junit.Before
+import org.junit.Test
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtensionContext
 
 
 @ExperimentalCoroutinesApi
@@ -20,14 +22,12 @@ class Show250TopMovieViewModelTest {
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
-//
-    //For calling suspend methods
-    private val mainThreadSurrogate = newSingleThreadContext("ShowThread")
 
+    @get:Rule
+    var mainCoroutineRule = MainCoroutineRule()
 
-    @BeforeEach
+    @Before
     fun setup() {
-        Dispatchers.setMain(mainThreadSurrogate)
         viewModel = Show250TopMovieViewModel(FakeShoppingRepository())
     }
 
@@ -35,16 +35,8 @@ class Show250TopMovieViewModelTest {
     @Test
     fun `Refresh 250 top movie List`() {
         viewModel.refresh250MoviesFromRepository()
-        val movieList = viewModel.liveData.getOrAwaitValue()
+        val movieList = viewModel.getLiveData().getOrAwaitValue()
         Assertions.assertTrue(movieList.isNotEmpty())
-
-    }
-
-
-    @AfterEach
-    fun tearDown() {
-        Dispatchers.resetMain()
-        mainThreadSurrogate.close()
     }
 
 }

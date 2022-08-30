@@ -34,7 +34,7 @@ class MainPhotoViewModel(private val app: Application) : AndroidViewModel(app) {
         val mimeType = if (isEncrypt) "*/*" else "image/jpeg"
         val filePath = getFilePath(isEncrypt)
         val contentValues = ContentValues()
-        contentValues.put(DISPLAY_NAME,"$timeStamp$fileSuffix")
+        contentValues.put(DISPLAY_NAME, "$timeStamp$fileSuffix")
         contentValues.put(MIME_TYPE, mimeType)
         contentValues.put(RELATIVE_PATH, filePath)
         contentValues.put(DATE_TAKEN, System.currentTimeMillis())
@@ -51,19 +51,21 @@ class MainPhotoViewModel(private val app: Application) : AndroidViewModel(app) {
         return filePath
     }
 
-    internal fun permissionDisableList(permissionList: ArrayList<String>):ArrayList<String>{
+    internal fun permissionDisableList(
+        permissionList: ArrayList<String>
+    ): ArrayList<String> {
         val result = ArrayList<String>(permissionList.size)
-        permissionList.forEach{
-            val permissionResult = ContextCompat.checkSelfPermission(app,it)
+        permissionList.forEach {
+            val permissionResult = ContextCompat.checkSelfPermission(app, it)
             if (permissionResult != PermissionChecker.PERMISSION_GRANTED)
                 result.add(it)
         }
         return result
     }
 
-    fun decryptBmp(uri:Uri): Bitmap{
+    fun decryptBmp(uri: Uri): Bitmap {
         val byteArray = uriToByteArray(uri, false)
-        return BitmapFactory.decodeByteArray(byteArray, 0 , byteArray.size)
+        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
     }
 
     private fun uriToByteArray(uri: Uri, isEncrypt: Boolean): ByteArray {
@@ -78,7 +80,7 @@ class MainPhotoViewModel(private val app: Application) : AndroidViewModel(app) {
         val cipher = Cipher.getInstance("AES")
         cipher.init(cipherMode, secretKeySpec)
         val cipherInputStream = CipherInputStream(inputStream, cipher)
-        while (cipherInputStream.read(buffer).also { length = it } != -1){
+        while (cipherInputStream.read(buffer).also { length = it } != -1) {
             byteArrayOutputStream.write(buffer, 0, length)
         }
         cipherInputStream.close()
@@ -87,7 +89,7 @@ class MainPhotoViewModel(private val app: Application) : AndroidViewModel(app) {
 
     }
 
-    fun encryption(uri:Uri):Uri{
+    fun encryption(uri: Uri): Uri {
         val buffer = ByteArray(1024)
         var length: Int
         val resultUri = createFile(true)
@@ -105,10 +107,10 @@ class MainPhotoViewModel(private val app: Application) : AndroidViewModel(app) {
         return resultUri
     }
 
-    companion object{
+    companion object {
         @JvmStatic
         @BindingAdapter("bind:setBitmap")
-        fun setBitmap(imageView: AppCompatImageView, bitmap: Bitmap){
+        fun setBitmap(imageView: AppCompatImageView, bitmap: Bitmap) {
             imageView.setImageBitmap(bitmap)
         }
     }
