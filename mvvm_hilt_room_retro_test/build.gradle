@@ -34,7 +34,7 @@ android {
         jvmTarget = '1.8'
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding true
         dataBinding true
     }
@@ -97,7 +97,6 @@ dependencies {
     testImplementation "org.mockito:mockito-core:4.6.1"
     //endregion
 
-    //region Instrumented Unit Tests
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.43.2'
     debugImplementation 'androidx.fragment:fragment-testing:1.5.2'
     androidTestImplementation "junit:junit:4.12"
@@ -110,6 +109,12 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     androidTestImplementation "org.mockito:mockito-core:4.6.1"
     androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:2.28.3"
+    //endregion
+
+    //region lottie player
+    implementation('com.airbnb.android:lottie:3.4.0') {
+        exclude group: "com.android.support"
+    }
     //endregion
 }
 

@@ -1,4 +1,4 @@
 <resources >
-    <style name="Theme.Applications" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Theme.Applications" parent="Theme.MaterialComponents.DayNight.NoActionBar">
     </style>
 </resources>

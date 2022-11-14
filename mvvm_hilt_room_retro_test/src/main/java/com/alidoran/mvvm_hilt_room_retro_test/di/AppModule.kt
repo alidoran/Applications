@@ -1,12 +1,15 @@
 package com.alidoran.mvvm_hilt_room_retro_test.di
 
 import android.content.Context
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
 import com.alidoran.mvvm_hilt_room_retro_test.api.RetrofitServices
 import com.alidoran.mvvm_hilt_room_retro_test.db.AppDatabase
 import com.alidoran.mvvm_hilt_room_retro_test.db.MovieDao
 import com.alidoran.mvvm_hilt_room_retro_test.repositories.MovieRepositoryDefault
 import com.alidoran.mvvm_hilt_room_retro_test.api.MoviesService
 import com.alidoran.mvvm_hilt_room_retro_test.repositories.MoviesRepository
+import com.alidoran.mvvm_hilt_room_retro_test.tools.ShowWait
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

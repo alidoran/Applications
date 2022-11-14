@@ -30,7 +30,7 @@ import org.junit.After
 class Show250TopMovieFragmentTest {
     private var navController:NavController? = null
 
-    @get:Rule()
+    @get:Rule
     var hiltRule = HiltAndroidRule(this)
 
     @get:Rule
@@ -46,7 +46,6 @@ class Show250TopMovieFragmentTest {
             vm = testViewModel
             Navigation.setViewNavController(requireView(), navController)
         }
-
     }
 
     @Test

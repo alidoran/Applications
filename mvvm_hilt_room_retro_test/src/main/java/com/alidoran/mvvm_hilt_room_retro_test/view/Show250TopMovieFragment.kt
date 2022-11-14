@@ -6,13 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.alidoran.mvvm_hilt_room_retro_test.adapter.MovieListAdapter
 import com.alidoran.mvvm_hilt_room_retro_test.databinding.FragmentShow250TopMovieBinding
+import com.alidoran.mvvm_hilt_room_retro_test.tools.ShowWait
 import com.alidoran.mvvm_hilt_room_retro_test.view_model.Show250TopMovieViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,13 +33,27 @@ class Show250TopMovieFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener
     ): View {
         _binding = FragmentShow250TopMovieBinding.inflate(inflater, container, false)
         vm= _vm
+        initView()
         return binding.root
+    }
+
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        loadRecycler()
+        initEvent()
+    }
+
+    private fun initView() {
+        binding.swipeMovieList.setOnRefreshListener(this)
+        binding.swipeMovieList.setProgressViewEndTarget(false, 0)
+        ShowWait(binding.root).addLiveCustomWait(this as LifecycleOwner, vm.showWaitLive)
     }
 
     private fun loadRecycler() {
         val movieAdapter = MovieListAdapter()
-        if (binding.swipeMovieList.isRefreshing)
-            binding.swipeMovieList.isRefreshing = false
         binding.recyclerMovie.apply {
             layoutManager = LinearLayoutManager(activity)
             itemAnimator = DefaultItemAnimator()
@@ -55,21 +72,15 @@ class Show250TopMovieFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener
         fillAdapterByLiveData(movieAdapter)
     }
 
-    fun fillAdapterByLiveData(adapter: MovieListAdapter) =
+    private fun fillAdapterByLiveData(adapter: MovieListAdapter) =
         vm.getLiveData().observe(viewLifecycleOwner) {
             adapter.submitList(it)
         }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.swipeMovieList.setOnRefreshListener(this)
-        loadRecycler()
+    private fun initEvent(){
         binding.fabAdd.setOnClickListener {
-            val movieCount = vm.getMovieCount()
-            val action = Show250TopMovieFragmentDirections
-                .actionShow250TopMovieFragmentToInsertMovieFragment(movieCount)
             findNavController(this)
-                .navigate(action)
+                .navigate(vm.getAddMovieAction())
         }
     }
 

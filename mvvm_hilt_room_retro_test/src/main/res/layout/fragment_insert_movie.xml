@@ -6,6 +6,10 @@
         <variable
             name = "model"
             type = "com.alidoran.mvvm_hilt_room_retro_test.model.Movie"/>
+
+        <variable
+            name = "movie_count"
+            type = "Integer"/>
     </data>
 
     <FrameLayout
@@ -32,7 +36,7 @@
                 android:id="@+id/txt_movie_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/movie_cout"/>
+                android:text="@{String.valueOf(movie_count)}" />
 
 
             <com.google.android.material.textfield.TextInputEditText
