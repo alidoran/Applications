@@ -86,7 +86,6 @@ class MainPhotoViewModel(private val app: Application) : AndroidViewModel(app) {
         cipherInputStream.close()
         inputStream!!.close()
         return byteArrayOutputStream.toByteArray()
-
     }
 
     fun encryption(uri: Uri): Uri {

@@ -1,8 +1,5 @@
 package ali.doran.securedata.data.local
 
-import ali.doran.securedata.model.UserItem
-import androidx.room.*
-
 
 interface UserDao {
 

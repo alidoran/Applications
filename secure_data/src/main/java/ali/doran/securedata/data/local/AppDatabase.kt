@@ -1,7 +1,6 @@
 package ali.doran.securedata.data.local
 
 import ali.doran.securedata.model.BankCard
-import ali.doran.securedata.model.UserItem
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room

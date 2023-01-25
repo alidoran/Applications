@@ -2,10 +2,10 @@
 <path xmlns:android="http://schemas.android.com/apk/res/android">
     <external-files-path
         name="my-images"
-        path="Android/data/com.alidoran.safelycamera/files/Pictures" />
+        path="Android/data/com.alidoran/files/Pictures" />
     <external-files-path
         name="my_debug_images"
-        path="/storage/emulated/0/Android/data/com.alidoran.safelycamera/file/Pictures/" />
+        path="/storage/emulated/0/Android/data/com.alidoran/file/Pictures/" />
     <external-files-path
         name="my_root_images"
         path="/" />

@@ -1,8 +1,6 @@
 package ali.doran.securedata.di
 
-import ali.doran.securedata.data.local.AppDatabase
 import ali.doran.securedata.data.local.AppDatabase.Companion.getDatabase
-import android.app.Application
 import android.content.Context
 import dagger.Module
 import dagger.Provides

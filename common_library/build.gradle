@@ -37,6 +37,7 @@ android {
             systemProperty "junit.jupiter.execution.parallel.enabled", "true"
         }
     }
+    namespace 'ali.doran.common_library'
 }
 
 dependencies {

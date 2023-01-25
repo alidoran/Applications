@@ -28,8 +28,6 @@
             android:src="@drawable/add_white_24dp"
             android:contentDescription="@string/add_bank_card"
             />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

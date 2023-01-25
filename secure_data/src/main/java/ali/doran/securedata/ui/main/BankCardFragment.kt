@@ -1,6 +1,5 @@
 package ali.doran.securedata.ui.main
 
-import ali.doran.securedata.R
 import ali.doran.securedata.databinding.FragmentBankCardBinding
 import ali.doran.securedata.model.BankCard
 import android.os.Bundle

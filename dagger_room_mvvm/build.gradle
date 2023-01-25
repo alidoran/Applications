@@ -33,6 +33,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'alidoran.dagger_room_mvvm'
 }
 
 dependencies {
