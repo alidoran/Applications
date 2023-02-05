@@ -10,7 +10,8 @@ data class BankCard(
     var cardName:String,
     var cardNumber : String,
     var cardPassword: String,
-    var deprecation: String,
+    var date: String,
     var firstPass: Long,
+    var cvv: Int,
     var secondPass: String
 )

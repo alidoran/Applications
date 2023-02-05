@@ -1,5 +1,6 @@
 package ali.doran.securedata.data.local
 
+import ali.doran.securedata.db.AppDatabase
 import ali.doran.securedata.getOrAwaitValue
 import ali.doran.securedata.model.BankCard
 import android.content.Context
@@ -26,7 +27,7 @@ class BankCardDaoTest {
     private lateinit var database: AppDatabase
     private lateinit var dao: BankCardDao
     private val bankCardItem =
-        BankCard(1, "saderat", "8888 8888 8888 8888", "1234", "98", 1234, "12345")
+        BankCard(1, "saderat", "8888 8888 8888 8888", "1234", "98", 1234,123, "12345")
 
     @Before
     fun setup() {

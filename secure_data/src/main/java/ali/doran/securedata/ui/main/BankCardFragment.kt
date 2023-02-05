@@ -26,10 +26,10 @@ class BankCardFragment : Fragment() {
         loadRecyclerView()
     }
 
-    fun loadRecyclerView(){
+    private fun loadRecyclerView(){
         val bankCardList = arrayListOf<BankCard>(
-            BankCard(null, "saderat", "8888 8888 8888 8888", "1234", "98", 1234, "12345"),
-            BankCard(null , "saderat2", "2222 8888 8888 8888", "1234", "98", 1234, "12345")
+            BankCard(null, "saderat", "8888 8888 8888 8888", "1234", "98", 1234,123, "12345"),
+            BankCard(null , "saderat2", "2222 8888 8888 8888", "1234", "98", 1234,123,  "12345")
         )
 
         val adapter = BankCardAdapter(bankCardList)

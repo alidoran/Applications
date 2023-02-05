@@ -1,145 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AddBankCardFragment">
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+        <variable
+            name="model"
+            type="ali.doran.securedata.model.BankCard" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".AddBankCardFragment">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_lay_card_name"
-            style="@style/TextLayoutStyle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/card_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_card_name"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_lay_card_name"
+                style="@style/TextLayoutStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="text"
-                android:maxLines="1"
-                android:layout_marginBottom="@dimen/margin_between_txt_input"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:hint="@string/card_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_lay_card_number"
-            style="@style/TextLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
-            android:hint="@string/card_number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lay_card_name">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_card_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/margin_between_txt_input"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:text="@={model.cardName}"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_card_number"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_lay_card_number"
+                style="@style/TextLayoutStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="text"
-                android:maxLines="1"
-                android:layout_marginBottom="@dimen/margin_between_txt_input"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginStart="64dp"
+                android:hint="@string/card_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_lay_card_name">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_lay_date"
-            style="@style/TextLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/card_date"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lay_card_number">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_card_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/margin_between_txt_input"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:text="@={model.cardNumber}"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_card_date"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_lay_date"
+                style="@style/TextLayoutStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="text"
-                android:maxLines="1"
-                android:layout_marginBottom="@dimen/margin_between_txt_input"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:hint="@string/card_date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_lay_card_number">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_lay_cvv"
-            style="@style/TextLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/cvv2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lay_date">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_card_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/margin_between_txt_input"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:text="@={model.date}"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_card_cvv"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_lay_cvv"
+                style="@style/TextLayoutStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="text"
-                android:maxLines="1"
-                android:layout_marginBottom="@dimen/margin_between_txt_input"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:hint="@string/cvv2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_lay_date">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_lay_pass1"
-            style="@style/TextLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/first_password"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lay_cvv">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_card_cvv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/margin_between_txt_input"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:text="aa"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_card_pass1"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_lay_pass1"
+                style="@style/TextLayoutStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:layout_marginBottom="@dimen/margin_between_txt_input"/>
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:hint="@string/first_password"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_lay_cvv">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txt_lay_pass2"
-            style="@style/TextLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/second_password"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lay_pass1">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_card_pass1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/margin_between_txt_input"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_card_pass2"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txt_lay_pass2"
+                style="@style/TextLayoutStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:inputType="textPassword"
-                android:maxLines="1" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:hint="@string/second_password"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_lay_pass1">
 
-        <include
-            android:id="@+id/include"
-            layout="@layout/bank_card_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/txt_lay_pass2" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_card_pass2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPassword"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/include" />
+            <include
+                android:id="@+id/include"
+                layout="@layout/bank_card_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txt_lay_pass2" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:text="@string/ok"
+                app:layout_constraintTop_toBottomOf="@+id/include" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+    </FrameLayout>
+
+</layout>

@@ -1,5 +1,6 @@
-package ali.doran.securedata.data.local
+package ali.doran.securedata.db
 
+import ali.doran.securedata.data.local.BankCardDao
 import ali.doran.securedata.model.BankCard
 import android.content.Context
 import androidx.room.Database
