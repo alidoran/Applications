@@ -14,6 +14,7 @@ buildscript{
         navigation = '2.5.3'
         lifecycle_version = '2.5.1'
         legacy_support = '1.0.0'
+        slidingpanelayout = '1.2.0'
 
         //Test
         kluent = '1.68'
@@ -37,7 +38,7 @@ buildscript{
         retrofit2 = '2.9.0'
 
         //UI
-        glide = '4.13.2'
+        glide = '4.14.2'
 
         //FireBase
         firebase_messaging = '23.0.6'
