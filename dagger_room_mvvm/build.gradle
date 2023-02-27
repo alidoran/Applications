@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "alidoran.daggerroommvvm"
         minSdk 24
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -42,7 +42,6 @@ dependencies {
     implementation "com.google.android.material:material:$material"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
     implementation "androidx.fragment:fragment-ktx:$fragment_ktx"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.room:room-runtime:$room"
     kapt "androidx.room:room-compiler:$room"
     kapt "com.google.dagger:dagger-compiler:$dagger"
